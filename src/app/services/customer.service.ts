@@ -13,4 +13,9 @@ export class CustomerService {
   createCustomer(customer: Customer) {
     return this.http.post(`http://localhost:5858/api/customer/create`, customer);
   }
+
+  getCustomers() {
+    return this.http.get<any[]>(`http://localhost:5858/api/customer`);
+  }
+
 }

@@ -1,1 +1,31 @@
-<p>customer-list works!</p>
+<div class="container mt-4">
+  <h2>Customer List</h2>
+
+  <table class="table table-striped">
+    <thead class="table-secondary">
+      <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email Address</th>
+        <th>Phone Number</th>
+        <th>Remarks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of customers">
+        <td>{{ c.id }}</td>
+        <td>{{ c.firstName }}</td>
+        <td>{{ c.lastName }}</td>
+        <td>{{ c.email }}</td>
+        <td>{{ c.phoneNumber }}</td>
+        <td>
+          <i class="bi bi-pencil-square text-primary me-3" style="cursor: pointer;" title="Edit">
+          </i>
+          <i class="bi bi-trash-fill text-danger" style="cursor: pointer;" title="Delete">
+          </i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
