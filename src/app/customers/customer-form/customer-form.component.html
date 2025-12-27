@@ -1,1 +1,17 @@
-<p>customer-form works!</p>
+<nav class="navbar" style="background-color: #e3f2fd;" data-bs-theme="light">
+  <div class="container-fluid" style="justify-content: left;">
+    <span class="navbar-brand mb-0 h1">Customer Form</span>
+  </div>
+</nav>
+
+<label>First Name</label>
+<br>
+<input type="text" [(ngModel)]="customer.firstName">
+<br><br>
+
+<label>Last Name</label>
+<br>
+<input type="text" [(ngModel)]="customer.lastName">
+<br><br>
+
+<button (click)="saveCustomer()">Save Customer</button>
