@@ -3,20 +3,51 @@
     <span class="navbar-brand mb-0 h1">
       Customer Form
     </span>
-    <button class="btn btn-primary ms-auto">
-      + Add Customer
-    </button>
+    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
+      aria-controls="offcanvasScrolling">+ Add Customer</button>
   </div>
 </nav>
 
-<label>First Name</label>
-<br>
-<input type="text" [(ngModel)]="customer.firstName">
-<br><br>
+<div class="offcanvas offcanvas-end custom-offcanvas" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+  id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title custom-offcanvas" id="offcanvasScrollingLabel"> Add New Customer </h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="row align-items-right mb-3">
+    <div class="col-2 text-right">
+      <label class="form-label mb-0">First Name :</label>
+    </div>
+    <div class="col-5">
+      <input type="text" [(ngModel)]="customer.firstName" class="form-control form-control-md">
+    </div>
+  </div>
+  <div class="row align-items-right mb-3">
+    <div class="col-2 text-right">
+      <label class="form-label mb-0">Last Name :</label>
+    </div>
+    <div class="col-5">
+      <input type="text" [(ngModel)]="customer.lastName" class="form-control form-control-md">
+    </div>
+  </div>
+  <div class="row align-items-right mb-3">
+    <div class="col-2 text-right">
+      <label class="form-label mb-0">Email Address :</label>
+    </div>
+    <div class="col-5">
+      <input type="text" [(ngModel)]="customer.email" class="form-control form-control-md">
+    </div>
+  </div>
+  <div class="row align-items-right mb-3">
+    <div class="col-2 text-right">
+      <label class="form-label mb-0">Phone :</label>
+    </div>
+    <div class="col-5">
+      <input type="text" [(ngModel)]="customer.phoneNumber" class="form-control form-control-md">
+    </div>
+  </div>
+  <div class="mb-3">
+    <button type="button" class="btn btn-success" (click)="saveCustomer()">Submit</button>
+  </div>
 
-<label>Last Name</label>
-<br>
-<input type="text" [(ngModel)]="customer.lastName">
-<br><br>
-
-<button (click)="saveCustomer()">Save Customer</button>
+</div>

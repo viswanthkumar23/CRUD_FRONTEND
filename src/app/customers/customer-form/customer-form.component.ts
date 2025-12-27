@@ -16,7 +16,7 @@ export class CustomerFormComponent {
   customer: Customer = {
     firstName: '',
     lastName: '',
-    emailId: '',
+    email: '',
     phoneNumber: ''
   }
 
