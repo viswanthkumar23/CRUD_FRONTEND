@@ -11,7 +11,8 @@
 <div class="offcanvas offcanvas-end custom-offcanvas" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
   id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
   <div class="offcanvas-header">
-    <h5 class="offcanvas-title custom-offcanvas" id="offcanvasScrollingLabel"> Add New Customer </h5>
+    <h5 class="offcanvas-title custom-offcanvas" id="offcanvasScrollingLabel"> {{ isEditMode ? 'Edit Customer' : 'Add
+      New Customer' }}</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
   </div>
   <div class="row align-items-right mb-3">
@@ -47,7 +48,8 @@
     </div>
   </div>
   <div class="mb-3">
-    <button type="button" class="btn btn-success" (click)="saveCustomer()">Submit</button>
+    <button type="button" class="btn btn-success" (click)="saveCustomer()">{{ isEditMode ? 'Update' : 'Submit'
+      }}</button>
   </div>
 
 </div>

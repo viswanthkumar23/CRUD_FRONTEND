@@ -9,6 +9,6 @@
 
 
 
-<app-customer-form></app-customer-form>
-<app-customer-list></app-customer-list>
+<app-customer-form #customerForm></app-customer-form>
+<app-customer-list (editEvent)="customerForm.loadCustomer($event)"></app-customer-list>
 <router-outlet />

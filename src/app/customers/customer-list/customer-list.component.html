@@ -20,9 +20,11 @@
         <td>{{ c.email }}</td>
         <td>{{ c.phoneNumber }}</td>
         <td>
-          <i class="bi bi-pencil-square text-primary me-3" style="cursor: pointer;" title="Edit">
+          <i class="bi bi-pencil-square text-primary me-3" style="cursor: pointer;" title="Edit"
+            (click)="editCustomer(c)">
           </i>
-          <i class="bi bi-trash-fill text-danger" style="cursor: pointer;" title="Delete">
+          <i class="bi bi-trash-fill text-danger" style="cursor: pointer;" title="Delete"
+            (click)="deleteCustomer(c.id)">
           </i>
         </td>
       </tr>

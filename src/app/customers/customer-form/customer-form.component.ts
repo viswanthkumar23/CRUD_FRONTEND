@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Customer } from '../../models/customer';
 import { CustomerService } from '../../services/customer.service';
 import { FormsModule } from '@angular/forms';
+
+declare var bootstrap: any;
 
 @Component({
   selector: 'app-customer-form',
@@ -11,7 +13,10 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './customer-form.component.css'
 })
 
+
 export class CustomerFormComponent {
+
+  isEditMode = false;
 
   customer: Customer = {
     firstName: '',
@@ -22,10 +27,33 @@ export class CustomerFormComponent {
 
   constructor(private customerService: CustomerService) { }
 
-  saveCustomer() {
-    this.customerService.createCustomer(this.customer).subscribe(data => {
-      console.log('Customer created successfully', data);
-    });
+  loadCustomer(customerData: any) {
+    this.customer = { ...customerData };
+    this.isEditMode = true;
+  }
 
+
+  saveCustomer() {
+    if (this.isEditMode) {
+      this.customerService.updateCustomer(this.customer).subscribe(() => {
+        alert('Customer Updated Successfully');
+        this.resetForm();
+      });
+    } else {
+      this.customerService.createCustomer(this.customer).subscribe(() => {
+        alert('Customer Added Successfully');
+        this.resetForm();
+      });
+    }
+  }
+
+  resetForm() {
+    this.customer = {
+      firstName: '',
+      lastName: '',
+      email: '',
+      phoneNumber: ''
+    };
+    this.isEditMode = false;
   }
 }
